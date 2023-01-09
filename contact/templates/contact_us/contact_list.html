@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container col-xxl-8 px-4 py-5">
+  <!-- Content here -->
+  {% for list in contact %}
+  <div class="card">
+    <div class="card-header">
+      Contact List
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{ list.your_name }}</li>
+      <li class="list-group-item">{{ list.phone }}</li>
+      <li class="list-group-item">{{ list.address }}</li>
+      <li class="list-group-item">{{ list.your_email}}</li>
+      <li class="list-group-item">{{ list.subject }}</li>
+      <li class="list-group-item">{{ list.message}}</li>
+    </ul>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

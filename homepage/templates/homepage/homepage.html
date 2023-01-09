@@ -1,0 +1,68 @@
+{% extends "base.html" %} 
+{% block content %}
+
+<main id="main">
+  <div class="container">
+    <div class="px-4 py-5 my-4 text-center">
+      <h1 
+        class="display-10 fw-bold p-4"
+      >
+        Publish your own Story
+      </h1>
+      <div class="mx-auto">
+        <p 
+          class="lead mb-4"
+        >
+        Experience the magic of storytelling with every turn of the page. Our publishing company is dedicated to bringing you the best in fiction, non-fiction, and everything in between. From heart-wrenching dramas to thrilling adventures, we have something for every reader. Get lost in the worlds of our authors, and let your imagination run wild. Join us on a journey of discovery and escape, and fall in love with the written word all over again.
+        </p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <a
+            class="btn btn-primary btn-lg px-4 gap-3"
+            href="{% url 'blog-list' %}"
+          >
+            View All Blog Posts
+          </a>
+          <a 
+            class="btn btn-light btn-lg px-4"
+            href="{% url 'create-your-blog' %}"
+          >
+            <span class="text-danger"> Publish</span>
+          </a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row mb-5 mt-2 p-2 d-flex justify-content-center">
+    <div class="">
+      {% for list in blog_post %}
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"> 
+        <div class="col p-4 d-flex flex-column position-static">
+          <small 
+            class="mb-2 d-inline-block text-success" 
+          >
+            By: {{ list.author }}
+          </small>
+          
+          <h3 class="mb-2 mt-4">
+            {{ list.title }}
+          </h3>
+            <a 
+              href="{% url 'detail' list.id %}" 
+              class="stretched-link mt-3"
+            >
+              Continue reading
+            </a>
+          </div>
+        </div>
+        {% empty %}
+        <div>
+          <p>No available blog </p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    
+  </div>
+  
+</main>
+{% endblock %}

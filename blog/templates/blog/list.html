@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container col-xxl-8 px-4 py-5">
+  <!-- Content here -->
+  {% for list in blog_post %}
+  <div class="card mb-3 pagination">
+    <div>
+      <a href="#" class="stretched-link">Go somewhere</a>
+    </div>
+    <div class="mb-1 m-2 p-1 text-muted">
+      Category: {{ list.category }} | {{ list.created_date }}
+      <img class="card-img-top img-fluid mx-auto d-block p-5" loading="lazy" 
+      src="{{list.image.url}}" alt="Card image cap" style="width: '25px'; height: '25px';">
+    </div>
+    <div class="card-body">
+      <h5 class="display-6 fw-normal fst-italic card-title">{{ list.title }}</h5>
+      <small class="text-muted">{{ list.author }}</small>
+      <p class="card-text">{{ list.content }}</p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a 
+          href="{% url 'blog-detail' list.id %}"
+          class="btn btn-primary btn-sm px-4 me-md-2"
+        >
+          View Blog
+        </a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
