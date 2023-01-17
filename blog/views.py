@@ -35,7 +35,7 @@ def blog_detail(request, pk):
     }
     return render(request, template_name, context)
 
-
+@login_required(login_url='login')
 def add_blog(request):
     template_name = 'blog/add_blog.html'
     form = BlogPostForms(request.POST or None, request.FILES or None)
