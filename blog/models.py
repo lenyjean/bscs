@@ -24,7 +24,7 @@ class BlogPost(models.Model):
     status = models.CharField(max_length=255, choices=status)
     image = models.ImageField(upload_to='content_images')
     category = models.CharField(max_length=200, choices=category_choices)
-    about_blog = models.CharField(max_length=200)
+    description = models.CharField(max_length=200)
 
     class Meta:
         verbose_name = 'Blog'

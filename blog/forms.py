@@ -7,7 +7,7 @@ class BlogPostForms(forms.ModelForm):
     class Meta: 
         model = BlogPost
         fields = [
-            'title', 'about_blog', 'category', 'image', 'content', 'status', 
+            'title', 'description', 'category', 'image', 'content', 'status', 
         ]
         widgets = {
             'content' : forms.Textarea(attrs={
